@@ -40,6 +40,7 @@ import HomeContext from './home.context';
 import { HomeInitialState, initialState } from './home.state';
 
 import { v4 as uuidv4 } from 'uuid';
+import { ClerkProvider } from '@clerk/nextjs';
 
 interface Props {
   serverSideApiKeyIsSet: boolean;
@@ -348,6 +349,7 @@ const Home = ({
   ]);
 
   return (
+    <ClerkProvider>
     <HomeContext.Provider
       value={{
         ...contextValue,
@@ -391,6 +393,7 @@ const Home = ({
         </main>
       )}
     </HomeContext.Provider>
+    </ClerkProvider>
   );
 };
 export default Home;
